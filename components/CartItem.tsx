@@ -12,7 +12,6 @@ const CartItemComponent: React.FC<{ item: CartItem }> = observer(({ item }) => {
   const handleApplyDiscount = async () => {
     const response: CouponResponse | boolean | number = await applyCouponCode();
     if (response) {
-            // @ts-ignore for deployment
       CartStore.addDiscountedItems({ id: item.id, discount: response.price });
     } else {
       setDiscountCode("");
@@ -22,7 +21,6 @@ const CartItemComponent: React.FC<{ item: CartItem }> = observer(({ item }) => {
   async function applyCouponCode() {
     try {
       const response: CouponResponse | number = await fetchDiscount(discountCode);
-      // @ts-ignore for deployment
       if (response && response !== 404 && response.isValid) {
         alert("Coupon successfully applied");
         return response;

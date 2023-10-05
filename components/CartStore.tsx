@@ -4,7 +4,7 @@ import { CartItem, DiscountedItemsTypes, CalculatePriceTypes } from "@/utils/Typ
 class CartStore {
   cartItems: CartItem[] | [] = [];
   discountedItems: DiscountedItemsTypes[] | [] = [];
-  checkoutItems: CalculatePriceTypes = { totalPrice: 0, totalItems: 0, totalDiscount: 0, totalDiscountItems: 0, updatedFinalPrice: 0 };
+  checkoutItems: CalculatePriceTypes | [] = [];
   constructor() {
     makeAutoObservable(this);
   }
@@ -12,11 +12,9 @@ class CartStore {
   setCheckoutItems = (data: CalculatePriceTypes) => (this.checkoutItems = data);
   setDiscountedItems = (data: DiscountedItemsTypes[]) => (this.discountedItems = data);
   addOneCart = (product: CartItem) => {
-    // @ts-ignore
     this.cartItems.push(product);
   };
   addDiscountedItems = (product: DiscountedItemsTypes) => {
-    // @ts-ignore
     this.discountedItems.push(product);
   };
 }
