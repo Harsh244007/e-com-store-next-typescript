@@ -30,11 +30,11 @@ const ProductList: React.FC = observer(() => {
       <h2 className="text-2xl font-semibold mb-4">Product List</h2>
       <ul className="space-y-4">
         {products.map((product) => (
-          <li key={product.id} className="border p-4 flex items-center space-x-4">
+          <li key={product.id} className="border p-4 flex flex-wrap justify-center items-center space-x-4">
             <div className="flex-shrink-0">
               <Image width="200" height="300" src={product.image} alt={product.title} className="w-32 h-32 object-cover" />
             </div>
-            <div className="flex-grow">
+            <div className="flex-grow max-w-3xl flex-wrap">
               <h3 className="text-lg font-semibold">{product.title}</h3>
               <p className="text-gray-500">{product.description}</p>
               <div className="flex items-center space-x-2">

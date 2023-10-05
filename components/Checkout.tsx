@@ -51,14 +51,21 @@ const Checkout: React.FC = observer(() => {
         <div className="bg-stone-900 border border-white p-4 rounded shadow">
           {CartStore.discountedItems.length > 0 ? (
             <>
+            {/* @ts-ignore */}
               <p className="text-lg font-semibold line-through">{`Total Price: $${CartStore.checkoutItems.totalPrice.toFixed(2)}`}</p>
               <p className="text-lg font-semibold">{`Total Items: ${CartStore.cartItems.length}`}</p>
+            {/* @ts-ignore */}
+
               <p className="text-lg font-semibold">{`Total Discount: $${CartStore.checkoutItems.totalDiscount.toFixed(2)}`}</p>
               <p className="text-lg font-semibold">{`Total Discount Items: ${CartStore.discountedItems.length}`}</p>
+            {/* @ts-ignore */}
               <p className="text-lg font-semibold">{`Updated Final Price: $${CartStore.checkoutItems.updatedFinalPrice.toFixed(2)}`}</p>
             </>
           ) : (
+            <>
+            {/* @ts-ignore */}
             <p className="text-lg font-semibold">{`Total Price: $${CartStore.checkoutItems.totalPrice.toFixed(2)}`}</p>
+            </>
           )}
         </div>
       </div>
