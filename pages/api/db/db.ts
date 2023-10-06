@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 
-const url = "mongodb+srv://harsh:harsh@cluster0.ugwk8b9.mongodb.net/ecom";
+const url = "mongodb://127.0.0.1:27017/ecom";
 
 export const connectToDatabase = async () => {
   try {
     await mongoose.connect(url);
-    console.log("connection successful");
+    console.log("connection successful and check your mongo url");
   } catch (error) {
-    console.error("Failed to connect to the database:", error);
+    console.error("enter your mongo url:", error);
     throw error;
   }
 };
